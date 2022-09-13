@@ -184,12 +184,22 @@
 				isContrast = true;
 			}
 			else {
-				document.getElementById("backgroundImage").style.backgroundColor = "rgba(174, 34, 225, 0.15)"
+				document.getElementById("backgroundImage").style.backgroundColor = "rgba(0, 0, 0, .7)"
 				isContrast = false;
 			}
 			
 			
 		}
+	if (isContrast == false){
+		console.log("yes")
+		document.getElementById("backgroundImage").style.backgroundColor = "#0000006d"
+		isContrast = true;
+	}
+	else {
+		document.getElementById("backgroundImage").style.backgroundColor = "rgba(0, 0, 0, .7)"
+		isContrast = false;
+	}
+
 	</script>
 
 </body>
