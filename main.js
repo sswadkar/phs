@@ -204,8 +204,8 @@ window.dataLayer = window.dataLayer || [];
     document.getElementsByClassName('period')[0].innerHTML = periodoutput.replace('%d',period)
     document.getElementsByClassName('stype')[0].innerHTML = typeoutput.replace('%a',data[str][0])
 
-    console.log(rawArray[period], val, prevK);
     document.getElementById("percentageCircle").style.strokeDasharray = `${(rawArray[period][1]-val)/(rawArray[period][1] - rawArray[period][0])*659}, 659`;
+    document.getElementById("largePercentageCircle").style.strokeDasharray = `${(rawArray[period][1]-val)/(rawArray[period][1] - rawArray[period][0])*1086}, 1086`;
 
 
     var dateObj = new Date();
