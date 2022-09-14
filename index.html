@@ -152,7 +152,8 @@
 		var largeTimerPeriod = document.getElementById("largeTimerPeriod");
 
 		var isLargeTimer = false;
-		var isContrast = false;
+		var isContrast = true;
+		document.getElementById("backgroundImage").style.backgroundColor = "rgba(0, 0, 0, .7)"
 
 		function toggleLargeTime(){
 			if (window.innerWidth > 640){
@@ -184,21 +185,12 @@
 				isContrast = true;
 			}
 			else {
-				document.getElementById("backgroundImage").style.backgroundColor = "rgba(0, 0, 0, .7)"
+				document.getElementById("backgroundImage").style.backgroundColor = "rgba(20, 35, 45, .7)"
 				isContrast = false;
 			}
 			
 			
 		}
-	if (isContrast == false){
-		console.log("yes")
-		document.getElementById("backgroundImage").style.backgroundColor = "#0000006d"
-		isContrast = true;
-	}
-	else {
-		document.getElementById("backgroundImage").style.backgroundColor = "rgba(0, 0, 0, .7)"
-		isContrast = false;
-	}
 
 	</script>
 
