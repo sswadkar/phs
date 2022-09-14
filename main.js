@@ -24,7 +24,7 @@ async function main() {
 
   // let data = JSON.parse(await (await (await fetch('data.json')).blob()).text())
   //bric is bad
-  data = await fetch('data.json').then(response => response.json())
+//   data = await fetch('data.json').then(response => response.json()) updating one thing one sec
 
   updateSchedule()
   countDownDate();
