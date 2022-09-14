@@ -9,6 +9,8 @@ gtag('config', 'UA-146662310-1');
 
 let countdown = select('.countdown');
 const output = countdown.innerHTML;
+let largeCountdown = select('.largeCountdown');
+const largeOutput = countdown.innerHTML;
 const periodoutput = document.getElementsByClassName('period')[0].innerHTML;
 const typeoutput = document.getElementsByClassName('stype')[0].innerHTML;
 const dateoutput = document.getElementsByClassName('date')[0].innerHTML;
@@ -88,16 +90,25 @@ function updateSchedule() {
   calculateGoal()
   // let myArray = [['test', 'test'], ['test','testtest']]
 
-  let result = '<table style="border:2px solid white;margin-left:auto;margin-right:auto;table-layout: fixed;width: 80%;" border=1> <tr style = "border: solid;"> <td style="padding : 10px">Period Name</td> <td style="padding : 10px"> Time </td> </tr>';
-
-  for (let i = 0; i < myArray.length; i++) {
-    result += "<tr>";
-    for (let j = 0; j < myArray[i].length; j++) {
-      result += "<td style='padding : 10px'>" + myArray[i][j] + "</td>";
+  var result = '';
+    
+  for(var i=0; i<myArray.length; i++) {
+    if (i == myArray.length-1){
+      result += "<tr class=''>";
+    }
+    else {
+      result += "<tr class='border-b w-full'>";
+    }
+    for(var j=0; j<myArray[i].length; j++){
+        if (j == 0){
+          result += "<td class='pr-8 py-2 pl-4 border-r font-bold text-xl'>"+myArray[i][j]+"</td>";
+        }
+        else {
+          result += "<td class='pl-6'>"+myArray[i][j]+"</td>";
+        }
     }
     result += "</tr>";
   }
-  result += "</table>";
 
   document.getElementsByClassName('scheds')[0].innerHTML = result;
 }
@@ -188,7 +199,8 @@ const countDownDate = function() {
   let minutes = Math.floor((timeleft - hours * 60 * 60) / 60);
   let seconds = Math.floor((timeleft - hours * 60 * 60 - minutes * 60));
 
-  countdown.innerHTML = output.replace('%h', hours).replace('%m', minutes).replace('%s', seconds);
+  countdown.innerHTML = output.replace('%h', hours.toString().padStart(2, "0")).replace('%m', minutes.toString().padStart(2, "0")).replace('%s', seconds.toString().padStart(2, "0"));
+  largeCountdown.innerHTML = largeOutput.replace('%h', hours.toString().padStart(2, "0")).replace('%m', minutes.toString().padStart(2, "0")).replace('%s', seconds.toString().padStart(2, "0"));
   document.getElementsByClassName('period')[0].innerHTML = periodoutput.replace('%d', period)
   document.getElementsByClassName('stype')[0].innerHTML = typeoutput.replace('%a', data[str][0])
   let dateObj = new Date();
